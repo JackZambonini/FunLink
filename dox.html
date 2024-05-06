@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Canada Citizen Census</h2>
+
+<p>Click Here to Verify that you are in Canada</p>
+
+<button onclick="getLocation()">Im in Canada</button>
+
+<p id="demo"></p>
+<p id="verify"></p>
+
+<script>
+const x = document.getElementById("demo");
+
+
+function getLocation() {
+  try {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } catch {
+    x.innerHTML = err;
+  }
+}
+
+function showPosition(position) {
+  document.getElementById("verify").innerHTML = "Verification Passed"
+
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
